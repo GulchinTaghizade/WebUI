@@ -1,0 +1,228 @@
+﻿@using Fiorello.Models
+@using Fiorello.ViewModels
+@model HomeViewModel
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<!-- Slider section start -->
+<section id="slider">
+    <div id="slider-summary">
+        @Html.Raw(Model.Summary.Title)
+        @Model.Summary.Description
+        <img src="@Model.Summary.Image"
+             alt="signaturelogo">
+    </div>
+    <!-- Slideshow container -->
+    <div class="slideshow-container fade">
+        <!-- Full images with numbers and message Info -->
+        <div class="Containers">
+            <img src="https://fiorello.qodeinteractive.com/wp-content/uploads/2018/05/h3-slider-background.jpg"
+                 style="width:100%">
+        </div>
+
+        <div class="Containers">
+            <img src="https://fiorello.qodeinteractive.com/wp-content/uploads/2018/05/h3-slider-background-2.jpg"
+                 style="width:100%">
+        </div>
+
+        <div class="Containers">
+            <img src="https://fiorello.qodeinteractive.com/wp-content/uploads/2018/05/h3-slider-background-3.jpg"
+                 style="width:100%">
+        </div>
+
+        <!-- Back and forward buttons -->
+
+        <a class="back" onclick="plusSlides(-1)">
+            <p id="backwrd_slidenum"></p> <i class="fa-solid fa-arrow-left-long"></i>
+        </a>
+        <a class="forward" onclick="plusSlides(1)">
+            <p id="forwrd_slidenum"></p><i class="fa-solid fa-arrow-right-long"></i>
+        </a>
+    </div>
+    <br>
+
+    <!-- The circles/dots -->
+    <div style="text-align:center">
+        <span class="dots" onclick="currentSlide(1)"></span>
+        <span class="dots" onclick="currentSlide(2)"></span>
+        <span class="dots" onclick="currentSlide(3)"></span>
+    </div>
+
+
+
+</section>
+<!-- Slider section end -->
+<!-- Products section start -->
+<section id="products">
+    <div id="filter">
+        <div id="categories">
+            <button class="category active" data-filter="*" onclick="filterSelection('all')">ALL</button>
+            <button class="category" onclick="filterSelection('cactuses')">CACTUSES</button>
+            <button class="category" onclick="filterSelection('exotic')">EXOTIC</button>
+            <button class="category" onclick="filterSelection('greens')">GREENS</button>
+            <button class="category" onclick="filterSelection('popular')">POPULAR</button>
+            <button class="category" onclick="filterSelection('various')">VARIOUS</button>
+            <button class="category" onclick="filterSelection('winter')">WINTER</button>
+        </div>
+        <span id="filter-span">
+            FILTER <i class="fa-solid fa-caret-down"></i>
+            <div id="filter-dropdown">
+                <ul id="sort_by">
+                    <li>
+                        <a href="">
+                            <h2 id="sort-h2-font">Sort By</h2>
+                        </a>
+                    </li>
+                    <li><a href="">Default</a></li>
+                    <li><a href="">Popularity</a></li>
+                    <li><a href="">Newness</a></li>
+                    <li><a href="">Price:Low To High</a></li>
+                    <li><a href="">Price:Hogh To Low</a></li>
+                </ul>
+                <ul id="price_range">
+                    <li>
+                        <a href="">
+                            <h2 id="price-h2-font">Price Range</h2>
+                        </a>
+                    </li>
+                    <li><a href="">All</a></li>
+                    <li><a href="">$0-$10</a></li>
+                    <li><a href="">$10-$20</a></li>
+                    <li><a href="">$20-$30</a></li>
+                    <li><a href="">$30-$40</a></li>
+                    <li><a href="">40$+</a></li>
+
+                </ul>
+            </div>
+        </span>
+    </div>
+    <div id="product-cards">
+        <div class="card popular winter cactuses" data-id="1">
+            <div class="card-image">
+                <img src="https://fiorello.qodeinteractive.com/wp-content/uploads/2018/04/shop-14-img.jpg"
+                     alt="product image">
+            </div>
+            <div class="card-summary">
+                <p class="item-name">MAJESTY PALM</p>
+                <button class="add-to-card">Add to cart</button>
+                <p class="item-price">$259</p>
+            </div>
+        </div>
+
+        <div class="card popular winter" data-id="2">
+            <div class="card-image">
+                <img src="https://fiorello.qodeinteractive.com/wp-content/uploads/2018/04/shop-13-img.jpg"
+                     alt="product image">
+            </div>
+            <div class="card-summary">
+                <p class="item-name">FOXGLOVE FLOWER</p>
+                <button class="add-to-card">Add to cart</button>
+                <p class="item-price">$259</p>
+            </div>
+        </div>
+        <div class="card popular winter" data-id="3">
+            <div class="card-image">
+                <img src="https://fiorello.qodeinteractive.com/wp-content/uploads/2018/05/shop-10-img.jpg"
+                     alt="product image">
+            </div>
+            <div class="card-summary">
+                <p class="item-name">SWEET ALYSSUM</p>
+                <button class="read-more">Read More</button>
+                <p class="item-price">$259</p>
+            </div>
+        </div>
+        <div class="card popular" data-id="4">
+            <div class="card-image">
+                <img src="https://fiorello.qodeinteractive.com/wp-content/uploads/2018/04/shop-11-img.jpg"
+                     alt="product image">
+            </div>
+            <div class="card-summary">
+                <p class="item-name">SPRING SNOWFLAKE</p>
+                <button class="add-to-card">Add to cart</button>
+                <p class="item-price">$170</p>
+            </div>
+        </div>
+        <div class="card popular" data-id="5">
+            <div class="card-image">
+                <img src="https://fiorello.qodeinteractive.com/wp-content/uploads/2018/04/shop-12-img.jpg"
+                     alt="product image">
+            </div>
+            <div class="card-summary">
+                <p class="item-name">SCARLET SAGE</p>
+                <button class="add-to-card">Add to cart</button>
+                <p class="item-price">
+                    <span style="text-decoration:line-through ;margin-right:5px ;">$259</span>$159
+                </p>
+            </div>
+        </div>
+        <div class="card various" data-id="6">
+            <div class="card-image">
+                <img src="https://fiorello.qodeinteractive.com/wp-content/uploads/2018/04/shop-9-img.jpg"
+                     alt="product image">
+            </div>
+            <div class="card-summary">
+                <p class="item-name">ROCK SOAPWORT</p>
+                <button class="view-products">View Product</button>
+                <p class="item-price">$259</p>
+            </div>
+        </div>
+        <div class="card greens various" data-id="7">
+            <div class="card-image">
+                <img src="https://fiorello.qodeinteractive.com/wp-content/uploads/2018/04/shop-8-img.jpg"
+                     alt="product image">
+            </div>
+            <div class="card-summary">
+                <p class="item-name">SUMMER SAVORY</p>
+                <button class="add-to-card">Add to cart</button>
+                <p class="item-price">$259</p>
+            </div>
+        </div>
+        <div class="card exotic various" data-id="8">
+            <div class="card-image">
+                <img src="https://fiorello.qodeinteractive.com/wp-content/uploads/2018/04/shop-7-img.jpg"
+                     alt="product image">
+            </div>
+            <div class="card-summary">
+                <p class="item-name">WILD ROSES</p>
+                <button class="buy-on-amazon">Buy on Amazon</button>
+                <p class="item-price">$259</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- Products section end -->
+<!-- Surprise your valentine section start -->
+<section id="surprise_your_valentine">
+    <div id="video">
+        <img src="https://fiorello.qodeinteractive.com/wp-content/uploads/2018/04/h3-video-img.jpg"
+             alt="video's layer photo">
+        <button id="play_btn">
+            <div id="red_triangle"></div>
+            <a href="https://www.youtube.com/watch?time_continue=1&v=K-0cjGCNYfs"></a>
+        </button>
+
+    </div>
+    <div id="surprise_your_valentine_summary">
+        <h3>
+            Suprise Your <span>Valentine!</span>
+            Let us arrange a smile.
+        </h3>
+
+        <p>Where flowers are our inspiration to create lasting memories. Whatever the occasion...</p>
+
+        <ul>
+            <li><img src="https://fiorello.qodeinteractive.com/wp-content/uploads/2018/04/h1-custom-icon.png" alt="heart-photo">Hand picked just for you.</li>
+            <li><img src="https://fiorello.qodeinteractive.com/wp-content/uploads/2018/04/h1-custom-icon.png" alt="heart-photo">Unique flower arrangements</li>
+            <li><img src="https://fiorello.qodeinteractive.com/wp-content/uploads/2018/04/h1-custom-icon.png" alt="heart-photo">Best way to say you care.</li>
+        </ul>
+
+
+
+    </div>
+
+</section>
+<!-- Surprise your valentine section end -->
